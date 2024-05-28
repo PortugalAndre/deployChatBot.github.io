@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <title>Deploy ChatBot</title>
+</head>
+<body>
+    <!-- Seu conteúdo aqui -->
+</body>
+<script type='text/javascript' src='https://service.force.com/embeddedservice/menu/fab.min.js'></script>
+<script type='text/javascript'>
+	var initESW = function(gslbBaseURL) {
+		// Necessário se você quiser rótulos em um idioma diferente do contexto de seu usuário.
+		//embedded_svc.menu.settings.language = ''; //Por exemplo, insira "pt" ou "pt-BR"
+
+		embedded_svc.menu.init(
+			'https://playful-hawk-l9hlx9-dev-ed.trailblaze.my.salesforce.com',
+			'https://d.la1-core1.sfdc-8tgtt5.salesforceliveagent.com/chat',
+			gslbBaseURL,
+			'00Dak000005bQX5',
+			'DemoChatBot1'
+		);
+	};
+
+	if (!window.embedded_svc || !window.embedded_svc.menu) {
+		var s = document.createElement('script');
+		s.setAttribute('src', 'https://playful-hawk-l9hlx9-dev-ed.trailblaze.my.salesforce.com/embeddedservice/menu/fab.min.js');
+		s.onload = function() {
+			initESW(null);
+		};
+		document.body.appendChild(s);
+	} else {
+		initESW('https://service.force.com');
+	}
+</script>
+</html>
